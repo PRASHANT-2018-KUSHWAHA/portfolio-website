@@ -11,7 +11,7 @@ export default function Home() {
           <div className="text-left max-w-lg">
             <h1 className="text-4xl font-bold font-semibold text-blue-600 fade-in">Welcome to My Portfolio</h1>
             <p className="mt-4 text-lg fade-in fade-in-delay-1">
-              I’m Prashant, a developer passionate about creating amazing web applications.
+              I&apos;m Prashant, a developer passionate about creating amazing web applications.
             </p>
           </div>
 
