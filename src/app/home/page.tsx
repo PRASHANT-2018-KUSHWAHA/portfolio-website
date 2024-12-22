@@ -1,5 +1,6 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -17,7 +18,7 @@ export default function Home() {
 
           {/* Profile Image */}
           <div className="w-52 h-52 rounded-full overflow-hidden shadow-lg fade-in fade-in-delay-2 mr-10">
-            <img
+            <Image
               src="/profile.jpeg" // Replace with your profile image path
               alt="Prashant's Profile"
               className="object-cover w-full h-full"
