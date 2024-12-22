@@ -43,7 +43,7 @@ export default function Header() {
             </Link>
           </div>
           {/* Portfolio Title */}
-          <h1 className="text-2xl font-semibold text-blue-600 font-bold">Prashant's Portfolio</h1>
+          <h1 className="text-2xl font-semibold text-blue-600 font-bold">Prashant&apos;s Portfolio</h1>
         </div>
 
         {/* Navigation links */}
