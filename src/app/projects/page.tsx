@@ -1,6 +1,7 @@
 "use client";
 
 import Header from "../components/Header";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Projects() {
@@ -73,7 +74,7 @@ export default function Projects() {
               {/* Image Section */}
               <div className="w-40 h-40">
                 <Link href={project.link} target="_blank">
-                    <img
+                    <Image
                       src={project.image}
                       alt={project.name}
                       className="w-full h-full object-cover rounded"
