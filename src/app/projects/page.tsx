@@ -72,15 +72,14 @@ export default function Projects() {
                 <p className="text-gray-700 whitespace-pre-line">{project.description}</p>
               </div>
               {/* Image Section */}
-              <div className="w-40 h-40">
                 <Link href={project.link} target="_blank">
                     <Image
                       src={project.image}
                       alt={project.name}
-                      className="w-full h-full object-cover rounded"
+                      width={150}
+                      height={150}
                     />
                 </Link>
-              </div>
             </li>
           ))}
         </ul>
