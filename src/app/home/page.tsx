@@ -17,11 +17,13 @@ export default function Home() {
           </div>
 
           {/* Profile Image */}
-          <div className="w-52 h-52 rounded-full overflow-hidden shadow-lg fade-in fade-in-delay-2 mr-10">
+          <div className="rounded-full overflow-hidden shadow-lg fade-in fade-in-delay-2 mr-10">
             <Image
               src="/profile.jpeg" // Replace with your profile image path
               alt="Prashant's Profile"
               className="object-cover w-full h-full"
+              width={200}
+              height={200}
             />
           </div>
         </main>
