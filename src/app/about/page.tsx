@@ -5,7 +5,7 @@ export default function About() {
     <>
       <Header />
       <main className="">
-        <div className="min-h-screen bg-black text-white p-4 flex items-center justify-center pt-24">
+        <div className="min-h-screen bg-black text-white p-4 flex items-center justify-center pt-24 max-w-7xl mx-auto">
           <div className="max-w-4xl text-left shadow-lg rounded-lg p-6">
             <h1 className="text-3xl font-semibold text-blue-600 mb-4 fade-in">
               About Me

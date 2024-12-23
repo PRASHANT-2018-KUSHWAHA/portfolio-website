@@ -55,7 +55,7 @@ export default function Projects() {
   return (
     <>
       <Header />
-      <main className="pt-24 px-5 mb-10 bg-black min-h-screen text-white">
+      <main className="pt-24 px-5 mb-10 bg-black min-h-screen text-white max-w-7xl mx-auto">
         <h1 className="text-3xl font-semibold text-blue-600 font-bold mb-8">Key Projects</h1>
         <ul className="space-y-8">
           {projects.map((project, index) => (
