@@ -25,7 +25,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full bg-black text-white transition-transform duration-300 ${
+      className={`fixed top-0 left-0 w-full bg-black text-white transition-transform duration-300 bg-gradient-to-r from-gray-900 via-black to-gray-900 ${
         showHeader ? "translate-y-0" : "-translate-y-full"
       } shadow-lg z-50`}
     >
@@ -43,9 +43,11 @@ export default function Header() {
               />
             </Link>
           </div>
-          <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-blue-600">
+          <Link href="/">
+          <h1 className="text-lg sm:text-xl lg:text-2xl font-bold">
             Prashant&apos;s Portfolio
           </h1>
+          </Link>
         </div>
 
         {/* Right Section: Navigation */}

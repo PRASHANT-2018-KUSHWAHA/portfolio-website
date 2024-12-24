@@ -14,7 +14,7 @@ export default function Projects() {
         - Integrated third-party APIs (Razorpay, Socket.IO) and worked on Node.js for backend integration.
         - Ensured code quality, usability, and team mentorship.
       `,
-      image: "/darzee_logo.webp",
+      image: "/fooddarzee.webp",
       link: "https://www.fooddarzee.com/",
     },
     {
@@ -47,7 +47,7 @@ export default function Projects() {
         - Integrated Stripe for payment processing, allowing secure transactions for doctors and healthcare professionals.
         - Focused on performance optimization and ensured data security and compliance with healthcare standards.
       `,
-      image: "/airamed.png",
+      image: "/airamed.jpg",
       link: "https://patient.airamed.de/en/welcome",
     },
   ];
@@ -55,34 +55,48 @@ export default function Projects() {
   return (
     <>
       <Header />
-      <main className="pt-24 px-5 mb-10 bg-black min-h-screen text-white max-w-7xl mx-auto">
-        <h1 className="text-3xl font-semibold text-blue-600 font-bold mb-8">Key Projects</h1>
-        <ul className="space-y-8">
-          {projects.map((project, index) => (
-            <li
-              key={index}
-              className="flex flex-col lg:flex-row items-center lg:items-start border p-4 rounded space-y-4 lg:space-y-0 lg:space-x-8 animate-slide-left opacity-0"
-              style={{
-                animationDelay: `${index * 1}s`, // Add delay based on index
-              }}
-            >
-              {/* Text Section */}
-              <div className="flex-1 text-left">
-                <h2 className="text-2xl font-semibold mb-2">{project.name}</h2>
-                <p className="text-gray-700 whitespace-pre-line">{project.description}</p>
-              </div>
-              {/* Image Section */}
+      <main className="bg-gradient-to-b from-gray-900 via-black to-gray-900 text-white pt-24 min-h-screen" >
+        <div className="max-w-7xl mx-auto p-6">
+          <h1 className="text-4xl font-bold text-center text-blue-600 mb-12">Key Projects</h1>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+            {projects.map((project, index) => (
+              <li
+                key={index}
+                className="bg-gray-800 hover:bg-gray-700 transition-shadow border border-gray-700 rounded-lg shadow-md overflow-hidden"
+              >
+                {/* Image Section */}
                 <Link href={project.link} target="_blank">
+                  <div className="relative group">
                     <Image
                       src={project.image}
                       alt={project.name}
-                      width={150}
-                      height={150}
+                      width={400}
+                      height={300}
+                      className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300 rounded-t-lg"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
                 </Link>
-            </li>
-          ))}
-        </ul>
+
+                {/* Text Section */}
+                <div className="p-5">
+                  <h2 className="text-xl font-bold mb-3">{project.name}</h2>
+                  <p className="text-gray-400 text-sm whitespace-pre-line mb-4">
+                    {project.description}
+                  </p>
+                  <Link
+                    href={project.link}
+                    target="_blank"
+                    className="inline-block mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500"
+                  >
+                    Visit Project
+                  </Link>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
       </main>
     </>
   );
