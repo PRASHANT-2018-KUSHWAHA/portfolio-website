@@ -35,7 +35,7 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto p-6">
           <h1 className="text-4xl font-bold text-center text-blue-600 mb-8">Contact Me</h1>
           <p className="text-center text-gray-300 text-lg mb-12 fade-in">
-            I'm always excited to connect! Feel free to reach out using any of the methods below.
+            I&apos;m always excited to connect! Feel free to reach out using any of the methods below.
           </p>
 
           {/* Contact Options */}
