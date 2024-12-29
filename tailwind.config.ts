@@ -1,16 +1,31 @@
 import type { Config } from "tailwindcss";
 
 export default {
+  darkMode: "class",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {
+  theme: { 
     extend: {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+         // Custom light theme colors
+         light: {
+          background: '#f9fafb',
+          primary: '#3b82f6',
+          secondary: '#6b7280',
+          text: '#1f2937',
+        },
+        // Custom dark theme colors
+        dark: {
+          background: '#1f2937',
+          primary: '#3b82f6',
+          secondary: '#d1d5db',
+          text: '#f9fafb',
+        },
       },
       animation: {
         'slide-left': 'slideLeft 1s ease-out forwards',

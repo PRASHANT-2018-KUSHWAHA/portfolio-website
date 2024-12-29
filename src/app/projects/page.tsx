@@ -3,8 +3,11 @@
 import Header from "../components/Header";
 import Image from "next/image";
 import Link from "next/link";
+import { useTheme } from "../components/ThemeProvider"; // Assuming you're using a ThemeContext or hook
 
 export default function Projects() {
+  const { theme } = useTheme(); // Assuming theme state is provided via context or hook
+
   const projects = [
     {
       name: "FoodDarzee (Frontend Lead)",
@@ -55,14 +58,30 @@ export default function Projects() {
   return (
     <>
       <Header />
-      <main className="bg-gradient-to-b from-gray-900 via-black to-gray-900 text-white pt-24 min-h-screen" >
+      <main
+        className={`transition-all pt-24 min-h-screen ${
+          theme === "dark"
+            ? "dark:bg-dark-background dark:text-dark-text bg-gradient-to-b from-gray-900 via-black to-gray-900"
+            : "bg-light-background text-light-text"
+        }`}
+      >
         <div className="max-w-7xl mx-auto p-6">
-          <h1 className="text-4xl font-bold text-center text-blue-600 mb-12">Key Projects</h1>
+          <h1
+            className={`text-4xl font-bold text-center mb-12 transition-all ${
+              theme === "dark" ? "text-dark-primary" : "text-light-primary"
+            }`}
+          >
+            Key Projects
+          </h1>
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
             {projects.map((project, index) => (
               <li
                 key={index}
-                className="bg-gray-800 hover:bg-gray-700 transition-shadow border border-gray-700 rounded-lg shadow-md overflow-hidden"
+                className={`${
+                  theme === "dark"
+                    ? "bg-dark-background hover:bg-dark-hover"
+                    : "bg-light-background hover:bg-light-hover"
+                } hover:shadow-lg transition-shadow border border-gray-700 rounded-lg shadow-md overflow-hidden`}
               >
                 {/* Image Section */}
                 <Link href={project.link} target="_blank">
@@ -80,8 +99,18 @@ export default function Projects() {
 
                 {/* Text Section */}
                 <div className="p-5">
-                  <h2 className="text-xl font-bold mb-3">{project.name}</h2>
-                  <p className="text-gray-400 text-sm whitespace-pre-line mb-4">
+                  <h2
+                    className={`text-xl font-bold mb-3 transition-all ${
+                      theme === "dark" ? "text-dark-primary" : "text-light-primary"
+                    }`}
+                  >
+                    {project.name}
+                  </h2>
+                  <p
+                    className={`text-sm whitespace-pre-line mb-4 transition-all ${
+                      theme === "dark" ? "text-dark-text" : "text-light-text"
+                    }`}
+                  >
                     {project.description}
                   </p>
                   <Link
@@ -96,7 +125,6 @@ export default function Projects() {
             ))}
           </ul>
         </div>
-
       </main>
     </>
   );

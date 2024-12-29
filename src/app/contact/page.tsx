@@ -11,7 +11,6 @@ export default function Contact() {
       email: { value: string };
       message: { value: string };
     };
-    e.preventDefault();
 
     const formData = {
       name: target.name.value,
@@ -34,13 +33,14 @@ export default function Contact() {
       window.open("mailto:prashantkushwaha000@gmail.com");
     }
   };
+
   return (
     <>
       <Header />
-      <main className="bg-gradient-to-b from-gray-900 via-black to-gray-900 text-white text-white pt-24 min-h-screen">
+      <main className="bg-gradient-to-b from-light-background via-light-secondary to-light-background dark:from-dark-background dark:via-dark-secondary dark:to-dark-background text-light-text dark:text-dark-text pt-24 min-h-screen">
         <div className="max-w-7xl mx-auto p-6">
           <h1 className="text-4xl font-bold text-center text-blue-600 mb-8">Contact Me</h1>
-          <p className="text-center text-gray-300 text-lg mb-12 fade-in">
+          <p className="text-center text-lg mb-12 fade-in leading-relaxed">
             I&apos;m always excited to connect! Feel free to reach out using any of the methods below.
           </p>
 
@@ -50,7 +50,7 @@ export default function Contact() {
               <FaEnvelope className="text-blue-600 text-4xl mb-3" />
               <a
                 href="mailto:prashantkushwaha000@gmail.com"
-                className="text-lg text-gray-300 hover:text-blue-400 transition"
+                className="text-lg leading-relaxed hover:text-blue-400 transition"
               >
                 prashantkushwaha000@gmail.com
               </a>
@@ -58,7 +58,7 @@ export default function Contact() {
 
             <div className="flex flex-col items-center text-center">
               <FaPhoneAlt className="text-blue-600 text-4xl mb-3" />
-              <p className="text-lg text-gray-300">+91 7597419907</p>
+              <p className="text-lg leading-relaxed">+91 7597419907</p>
             </div>
 
             <div className="flex flex-col items-center text-center">
@@ -67,7 +67,7 @@ export default function Contact() {
                 href="https://www.linkedin.com/in/prashant-kushwaha-96a230142/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-lg text-gray-300 hover:text-blue-400 transition"
+                className="text-lg leading-relaxed hover:text-blue-400 transition"
               >
                 LinkedIn Profile
               </a>
@@ -79,7 +79,7 @@ export default function Contact() {
                 href="https://github.com/PRASHANT-2018-KUSHWAHA"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-lg text-gray-300 hover:text-blue-400 transition"
+                className="text-lg leading-relaxed hover:text-blue-400 transition"
               >
                 GitHub Profile
               </a>
@@ -87,13 +87,13 @@ export default function Contact() {
           </div>
 
           {/* Contact Form */}
-          <div className="mt-12 max-w-3xl mx-auto bg-gray-800 rounded-lg shadow-lg p-8">
+          <div className="mt-12 max-w-3xl mx-auto bg-light-background dark:bg-dark-background rounded-lg shadow-lg p-8">
             <h2 className="text-2xl font-bold text-center text-blue-500 mb-6">Send Me a Message</h2>
             <form onSubmit={handleSubmit}>
               <div className="mb-6">
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-gray-400 mb-2"
+                  className="block text-sm font-medium leading-relaxed mb-2"
                 >
                   Your Name
                 </label>
@@ -108,7 +108,7 @@ export default function Contact() {
               <div className="mb-6">
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-400 mb-2"
+                  className="block text-sm font-medium leading-relaxed mb-2"
                 >
                   Your Email
                 </label>
@@ -123,7 +123,7 @@ export default function Contact() {
               <div className="mb-6">
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-gray-400 mb-2"
+                  className="block text-sm font-medium leading-relaxed mb-2"
                 >
                   Your Message
                 </label>

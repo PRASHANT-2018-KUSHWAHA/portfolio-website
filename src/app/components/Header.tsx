@@ -1,108 +1,136 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useTheme } from "./ThemeProvider";
+import ThemeToggleButton from "./ThemeToggleButton";
 
-export default function Header() {
-  const [showHeader, setShowHeader] = useState(true);
+export default function ResponsiveNavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setShowHeader(false);
-      } else {
-        setShowHeader(true);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const { theme } = useTheme();
 
   return (
-    <header
-      className={`fixed top-0 left-0 w-full bg-black text-white transition-transform duration-300 bg-gradient-to-r from-gray-900 via-black to-gray-900 ${
-        showHeader ? "translate-y-0" : "-translate-y-full"
-      } shadow-lg z-50`}
-    >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-3">
-        {/* Left Section: Logo and Title */}
-        <div className="flex items-center space-x-4">
-          <div className="w-12 h-12 rounded-full overflow-hidden">
-            <Link href="/">
+    <div>
+      {/* Sidebar for Mobile */}
+      <aside
+        className={`fixed top-0 right-0 h-full shadow-lg z-50 w-64 transition-transform duration-300
+          ${menuOpen ? "translate-x-0" : "translate-x-full"}
+          ${theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-gray-900"}`}
+      >
+        <div className="p-6">
+          {/* Profile Section */}
+          <div className="flex items-center space-x-4 mb-10">
+            <div className="w-14 h-14 rounded-full overflow-hidden">
               <Image
                 src="/profile.jpeg"
                 alt="Prashant's Profile"
-                width={48}
-                height={48}
+                width={56}
+                height={56}
                 className="object-cover"
               />
+            </div>
+            <h1 className="text-xl font-semibold">
+              Prashant<span className={`${theme === "dark" ? "text-blue-400" : "text-blue-600"}`}>'s</span> Portfolio
+            </h1>
+          </div>
+
+          {/* Navigation Links */}
+          <nav className="space-y-6">
+            {["Home", "About", "Projects", "Contact"].map((link) => (
+              <Link
+                key={link}
+                href={`/${link.toLowerCase()}`}
+                className="flex items-center text-lg font-medium hover:text-blue-500 transition-colors"
+              >
+                {link}
+              </Link>
+            ))}
+          </nav>
+          <div className="bottom-0 absolute end-0 p-6">
+            <ThemeToggleButton />
+          </div>
+        </div>
+      </aside>
+
+      {/* Top Navbar for Desktop */}
+      <header
+        className={`hidden lg:block fixed top-0 right-0 w-full shadow-lg z-50 transition-colors
+          ${theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-gray-900"}`}
+      >
+        <nav className="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center py-4">
+          {/* Logo and Title */}
+          <div className="flex items-center space-x-4">
+            <div className="w-12 h-12 rounded-full overflow-hidden">
+              <Link href="/">
+                <Image
+                  src="/profile.jpeg"
+                  alt="Prashant's Profile"
+                  width={48}
+                  height={48}
+                  className="object-cover"
+                />
+              </Link>
+            </div>
+            <Link href="/">
+              <h1 className="text-xl font-semibold">
+                Prashant<span className={`${theme === "dark" ? "text-blue-400" : "text-blue-600"}`}>'s</span> Portfolio
+              </h1>
             </Link>
           </div>
-          <Link href="/">
-          <h1 className="text-lg sm:text-xl lg:text-2xl font-bold">
-            Prashant&apos;s Portfolio
-          </h1>
-          </Link>
-        </div>
 
-        {/* Right Section: Navigation */}
-        <div className="lg:hidden">
-          {/* Hamburger Menu */}
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="p-2 focus:outline-none"
-            aria-label="Toggle Menu"
-          >
-            <svg
-              className="w-6 h-6 text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d={menuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-              />
-            </svg>
-          </button>
-        </div>
+          {/* Navigation Links */}
+          <ul className="flex space-x-10">
+            {["Home", "About", "Projects", "Contact"].map((link) => (
+              <li key={link}>
+                <Link href={`/${link.toLowerCase()}`} className="hover:text-blue-500">
+                  {link}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <ThemeToggleButton />
+            </li>
+          </ul>
+        </nav>
+      </header>
 
-        {/* Navigation Links */}
-        <ul
-          className={`absolute lg:static bg-black lg:bg-transparent top-14 lg:top-auto right-0 lg:right-auto w-full lg:w-auto flex flex-col lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-6 p-6 lg:p-0 ${
-            menuOpen ? "block" : "hidden lg:flex"
-          }`}
+      {/* Hamburger Menu for Mobile */}
+      <div className="lg:hidden">
+        <button
+          className={`fixed top-4 right-4 p-2 rounded-md z-50 transition-colors
+            ${theme === "dark" ? "bg-gray-800 text-white" : "bg-gray-200 text-gray-800"}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle Sidebar"
         >
-          <li>
-            <Link href="/" className="hover:text-blue-600">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link href="/about" className="hover:text-blue-600">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link href="/projects" className="hover:text-blue-600">
-              Projects
-            </Link>
-          </li>
-          <li>
-            <Link href="/contact" className="hover:text-blue-600">
-              Contact
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    </header>
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d={
+                menuOpen
+                  ? "M6 18L18 6M6 6l12 12"
+                  : "M4 6h16M4 12h16M4 18h16"
+              }
+            />
+          </svg>
+        </button>
+      </div>
+
+      {/* Content Area */}
+      <main
+        className={`flex-1 ${menuOpen ? "mr-0" : "mr-0 lg:mr-0"} lg:pr-72 transition-colors
+          ${theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"}`}
+      >
+        {/* Page content goes here */}
+      </main>
+    </div>
   );
 }

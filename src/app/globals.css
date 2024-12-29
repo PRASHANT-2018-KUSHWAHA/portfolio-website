@@ -63,3 +63,8 @@ body {
   animation: fadeIn 1.5s ease-in-out forwards;
   animation-delay: 1.5s;
 }
+
+/* Optional custom styling */
+.toggle-button {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
