@@ -31,7 +31,7 @@ export default function ResponsiveNavBar() {
               />
             </div>
             <h1 className="text-xl font-semibold">
-              Prashant<span className={`${theme === "dark" ? "text-blue-400" : "text-blue-600"}`}>'s</span> Portfolio
+              Prashant<span className={`${theme === "dark" ? "text-blue-400" : "text-blue-600"}`}>&apos;s</span> Portfolio
             </h1>
           </div>
 
@@ -74,7 +74,7 @@ export default function ResponsiveNavBar() {
             </div>
             <Link href="/">
               <h1 className="text-xl font-semibold">
-                Prashant<span className={`${theme === "dark" ? "text-blue-400" : "text-blue-600"}`}>'s</span> Portfolio
+                Prashant<span className={`${theme === "dark" ? "text-blue-400" : "text-blue-600"}`}>&apos;s</span> Portfolio
               </h1>
             </Link>
           </div>

@@ -70,7 +70,7 @@ export default function About() {
                   My Passion
                 </h2>
                 <p className="leading-relaxed">
-                  I thrive in startup environments, where innovation and adaptability are key. I'm dedicated to delivering high-quality, scalable solutions while staying at the forefront of modern web and app development.
+                  I thrive in startup environments, where innovation and adaptability are key. I&apos;m dedicated to delivering high-quality, scalable solutions while staying at the forefront of modern web and app development.
                 </p>
               </div>
             </div>
